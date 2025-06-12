@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),tailwindcss()],
+  plugins: [react( ), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -17,9 +17,12 @@ export default defineConfig({
     allowedHosts: 'all'
   },
   preview: {
-    host: '0.0.0.0',
+    host: '0.0.0.0', 
     port: process.env.PORT || 3000,
-    allowedHosts: 'all'
+    allowedHosts: ['regulatory-intelligence-production.up.railway.app', 'localhost', '0.0.0.0']
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false
   }
 })
-
